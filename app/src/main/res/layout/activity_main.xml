@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.skipphelp.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_view_countdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:autoSizeMaxTextSize="300dp"
+            android:autoSizeTextType="uniform"
+            android:text="05:00"
+
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            app:fontFamily="@font/orbitron_bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/button_start_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view_countdown"
+                android:layout_centerHorizontal="true"
+
+                android:text="start" />
+
+            <Space android:layout_width="50dp"
+                 android:layout_height="match_parent"/>
+
+            <Button
+                android:id="@+id/button_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view_countdown"
+                android:layout_toEndOf="@+id/button_start_pause"
+                android:text="reset"
+                android:visibility="invisible"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view_countdown"
+                android:layout_toEndOf="@+id/button_start_pause"
+                android:layout_weight="0.1"
+                android:text="20 kn"
+                android:textSize="60sp"
+                android:visibility="invisible"
+                app:fontFamily="@font/orbitron_bold"
+                tools:visibility="visible" />
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view_countdown"
+                android:layout_toEndOf="@+id/button_start_pause"
+                android:layout_weight="0.1"
+                android:text="20 vmg"
+                android:textSize="60sp"
+                android:visibility="invisible"
+                app:fontFamily="@font/orbitron_bold"
+                tools:visibility="visible" />
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view_countdown"
+                android:layout_toEndOf="@+id/button_start_pause"
+                android:layout_weight="0.1"
+                android:text="70 kg"
+                android:textSize="60sp"
+                android:visibility="invisible"
+                app:fontFamily="@font/orbitron_bold"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
