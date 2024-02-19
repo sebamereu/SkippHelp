@@ -4,16 +4,18 @@ import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-    private static final long START_TIME_IN_MILLIS = 60000*5;
+    private static final long START_TIME_IN_MILLIS = 10000*1;
 
 
 
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean mTimerRunning;
     private MediaPlayer mediaPlayer;
+    private Chronometer chronometer;
 
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        chronometer = findViewById(R.id.chronometer);
 
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
 
@@ -65,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 mTimeLeftInMillis = millisUntilFinished;
                 updateCountDownText();
-                if (millisUntilFinished <= 60000 && millisUntilFinished >= 59000) {
+                if (millisUntilFinished <= 1000 && millisUntilFinished >= 0) {
                     playBeepSound();
                 }
             }
@@ -76,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
                 mButtonStartPause.setText("Start");
                 mButtonStartPause.setVisibility(View.INVISIBLE);
                 mButtonReset.setVisibility(View.VISIBLE);
+                chronometer.setBase(SystemClock.elapsedRealtime());
+                chronometer.start();
             }
         }.start();
 
